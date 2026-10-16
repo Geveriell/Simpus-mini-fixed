@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIMPUS-Mini | Tambah Anggota</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <button type="button" id="nav-toggle-btn" class="nav-toggle" aria-label="Buka menu" aria-controls="menu-utama" aria-expanded="false">&#9776;</button>
+        <nav id="menu-utama">
+            <ul>
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="../buku/list.html">Daftar Buku</a></li>
+                <li><a href="../buku/tambah.html">Tambah Buku</a></li>
+                <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+                <li><a href="../anggota/tambah.html" aria-current="page">Tambah Anggota</a></li>
+                <li><a href="../login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tambah Anggota</h2>
+            <form id="form-tambah" novalidate>
+                <p>
+                    <label for="nama">Nama</label>
+                    <input type="text" id="nama" name="nama">
+                </p>
+                <p>
+                    <label for="no_anggota">No. Anggota</label>
+                    <input type="text" id="no_anggota" name="no_anggota">
+                </p>
+                <p>
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" name="alamat">
+                </p>
+                <p>
+                    <label for="no_hp">No. HP</label>
+                    <input type="tel" id="no_hp" name="no_hp">
+                </p>
+                <p>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Proyek Jobsheet 1&ndash;6</p>
+    </footer>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/data-cadangan.js"></script>
+    <script src="../assets/js/simpus-data.js"></script>
+</body>
+</html>

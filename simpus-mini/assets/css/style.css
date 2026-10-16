@@ -1,0 +1,373 @@
+/* =====================================================================
+   SIMPUS-Mini — style.css
+   Jobsheet 2 (box model, Flexbox, Grid) + Jobsheet 3 (responsif, mobile-first)
+   + Jobsheet 5/6 (kelas pendukung JS: .error, .search-box, .status, .btn-*)
+   Pola: gaya dasar = mobile; layar lebih lebar ditambah via min-width.
+   ===================================================================== */
+
+/* ===== Variabel warna ===== */
+:root {
+    --aksen: #1d5b8a;
+    --aksen-gelap: #164869;
+    --aksen-muda: #eef4fa;
+    --teks: #2b2b2b;
+    --teks-redup: #55677a;
+    --latar: #f5f6f8;
+    --garis: #e2e6ea;
+    --bahaya: #c9302c;
+    --sukses: #2e7d32;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--teks);
+    background-color: var(--latar);
+    line-height: 1.5;
+}
+
+a {
+    color: var(--aksen);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Header & Navbar (Flexbox) ===== */
+header {
+    background-color: var(--aksen);
+    color: #fff;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 1.4rem;
+}
+
+header nav {
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+header nav a {
+    display: block;
+    padding: 0.45rem 0;
+    color: #fff;
+    font-weight: 500;
+}
+
+header nav a[aria-current="page"] {
+    font-weight: 700;
+    border-bottom: 2px solid #fff;
+}
+
+/* Tombol hamburger (disembunyikan di desktop) */
+.nav-toggle {
+    display: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+}
+
+/* Mobile (<768px) dengan JS aktif: menu disembunyikan sampai tombol diklik.
+   Tanpa JS, menu tetap tampil bertumpuk sehingga tetap bisa dipakai. */
+.js .nav-toggle {
+    display: block;
+}
+
+.js header nav {
+    display: none;
+}
+
+.js header nav.nav-open {
+    display: block;
+}
+
+/* ===== Layout utama ===== */
+main {
+    max-width: 1000px;
+    margin: 1.25rem auto;
+    padding: 0 1rem;
+}
+
+section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    margin-bottom: 1rem;
+    color: var(--aksen);
+    font-size: 1.3rem;
+}
+
+.intro {
+    margin-bottom: 1rem;
+    color: var(--teks-redup);
+}
+
+/* ===== Kartu statistik (CSS Grid): 1 kolom mobile -> 3 kolom desktop ===== */
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.card {
+    background-color: var(--aksen-muda);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 0.95rem;
+    color: var(--teks-redup);
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--aksen);
+}
+
+/* ===== Tabel ===== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 560px; /* agar di layar sempit tabel di-scroll, bukan terpotong */
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--garis);
+}
+
+thead {
+    background-color: var(--aksen);
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f7f9fb;
+}
+
+tbody tr:hover {
+    background-color: var(--aksen-muda);
+}
+
+td:last-child {
+    white-space: nowrap;
+}
+
+.stok-habis {
+    color: var(--bahaya);
+    font-weight: 700;
+}
+
+/* ===== Tombol ===== */
+.btn {
+    padding: 0.35rem 0.7rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #fff;
+}
+
+.btn-edit {
+    background-color: #c77c0e;
+}
+
+.btn-hapus {
+    background-color: var(--bahaya);
+}
+
+.btn-primary {
+    background-color: var(--aksen);
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--aksen-gelap);
+}
+
+.btn:focus-visible,
+.nav-toggle:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #f0ad4e;
+    outline-offset: 2px;
+}
+
+/* ===== Form: label di atas input ===== */
+form p {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: #444;
+}
+
+form input,
+form select,
+.search-box input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #b9c2ca;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.hint {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--teks-redup);
+    font-size: 0.85rem;
+}
+
+/* ===== Validasi (Jobsheet 5) ===== */
+.error {
+    display: block;
+    color: var(--bahaya);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+input.input-error,
+select.input-error {
+    border-color: var(--bahaya);
+}
+
+.notif-sukses {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--sukses);
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border-radius: 4px;
+}
+
+/* ===== Pencarian & status (Jobsheet 5/6) ===== */
+.search-box {
+    margin-bottom: 1rem;
+}
+
+.status {
+    margin-bottom: 0.75rem;
+    color: var(--teks-redup);
+}
+
+.status-info {
+    padding: 0.5rem 0.75rem;
+    background-color: #fff8e1;
+    border-left: 4px solid #f0ad4e;
+    border-radius: 4px;
+    color: #6b4b00;
+    font-size: 0.9rem;
+}
+
+.pesan-error {
+    color: var(--bahaya);
+    font-weight: 600;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 1.25rem;
+    color: #5f6b77;
+    font-size: 0.9rem;
+}
+
+/* =====================================================================
+   Breakpoint (mobile-first, min-width)
+   ===================================================================== */
+
+/* Tablet ke atas (>=768px): navbar horizontal, hamburger hilang */
+@media (min-width: 768px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    .js .nav-toggle {
+        display: none;
+    }
+
+    header nav,
+    .js header nav {
+        display: block;
+        width: auto;
+        margin-top: 0;
+    }
+
+    header nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+
+    header nav a {
+        padding: 0.25rem 0;
+    }
+
+    main {
+        margin: 2rem auto;
+        padding: 0 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop (>=1024px) */
+@media (min-width: 1024px) {
+    header {
+        padding: 1rem 2rem;
+    }
+}

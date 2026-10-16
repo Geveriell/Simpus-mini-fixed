@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIMPUS-Mini | Beranda</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>SIMPUS-Mini</h1>
+        <button type="button" id="nav-toggle-btn" class="nav-toggle" aria-label="Buka menu" aria-controls="menu-utama" aria-expanded="false">&#9776;</button>
+        <nav id="menu-utama">
+            <ul>
+                <li><a href="index.html" aria-current="page">Beranda</a></li>
+                <li><a href="buku/list.html">Daftar Buku</a></li>
+                <li><a href="buku/tambah.html">Tambah Buku</a></li>
+                <li><a href="anggota/list.html">Daftar Anggota</a></li>
+                <li><a href="anggota/tambah.html">Tambah Anggota</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Selamat Datang di Sistem Perpustakaan Mini</h2>
+            <p>Aplikasi sederhana untuk mengelola data buku dan anggota perpustakaan.</p>
+        </section>
+
+        <section>
+            <h2>Ringkasan</h2>
+            <div class="stat-grid">
+                <article class="card">
+                    <h3>Total Buku</h3>
+                    <p>10</p>
+                </article>
+                <article class="card">
+                    <h3>Total Anggota</h3>
+                    <p>4</p>
+                </article>
+                <article class="card">
+                    <h3>Sedang Dipinjam</h3>
+                    <p>3</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMPUS-Mini &mdash; Proyek Jobsheet 1&ndash;6</p>
+    </footer>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/simpus-data.js"></script>
+</body>
+</html>
